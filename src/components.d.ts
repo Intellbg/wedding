@@ -10,7 +10,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     CountDownTimer: typeof import('./components/CountDownTimer.vue')['default']
     Header: typeof import('./components/Header.vue')['default']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     LocationSection: typeof import('./components/LocationSection.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
