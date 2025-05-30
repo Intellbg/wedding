@@ -20,7 +20,11 @@
           <div v-if="selectedEvent" :key="selectedEvent.year">
             <p class="description">{{ selectedEvent.description }}</p>
             <div class="photo">
-              <img :src="selectedEvent.photos[photoIndex]" :alt="'Foto de ' + selectedEvent.year" loading="lazy" />
+              <img
+                :src="selectedEvent.photos[photoIndex]"
+                :alt="'Foto de ' + selectedEvent.year"
+                loading="lazy"
+              />
             </div>
           </div>
         </transition>
@@ -28,8 +32,14 @@
     </div>
     <div class="scroll-arrow brown-text" @click="scrollToNext" aria-label="Scroll to next section">
       <svg width="32" height="32" viewBox="0 0 24 24" class="arrow-icon">
-        <path d="M12 5v14M12 19l-7-7M12 19l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round" fill="none" />
+        <path
+          d="M12 5v14M12 19l-7-7M12 19l7-7"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
+        />
       </svg>
     </div>
   </section>
@@ -55,18 +65,20 @@ const events = [
 const selectedIndex = ref(0)
 const selectedEvent = computed(() => events[selectedIndex.value])
 const photoIndex = ref(0)
+
 let autoAdvanceInterval = null
 
 function selectYear(index) {
   selectedIndex.value = index
   photoIndex.value = 0
+  resetAutoAdvance()
 }
 
 function scrollToNext() {
-    const section = document.getElementById('event-location');
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
+  const section = document.getElementById('event-location')
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 
 function setupAutoAdvance() {
@@ -74,6 +86,11 @@ function setupAutoAdvance() {
     selectedIndex.value = (selectedIndex.value + 1) % events.length
     photoIndex.value = 0
   }, 5000)
+}
+
+function resetAutoAdvance() {
+  if (autoAdvanceInterval) clearInterval(autoAdvanceInterval)
+  setupAutoAdvance()
 }
 
 onMounted(() => {
