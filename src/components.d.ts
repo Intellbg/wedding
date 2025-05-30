@@ -11,6 +11,7 @@ declare module 'vue' {
     CountDownTimer: typeof import('./components/CountDownTimer.vue')['default']
     Header: typeof import('./components/Header.vue')['default']
     LocationSection: typeof import('./components/LocationSection.vue')['default']
+    NavButton: typeof import('./components/NavButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Timeline: typeof import('./components/Timeline.vue')['default']
