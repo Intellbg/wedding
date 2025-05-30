@@ -20,7 +20,7 @@
     </div>
     <p class="note">
       Lo más importante es compartir este momento contigo.<br />
-      <strong>El código de vestimenta es formal.</strong>
+      <strong>Sugerimos vestimenta formal</strong>
     </p>
     <button class="rsvp-button" @click="goToReservation">Confirmar asistencia</button>
 
