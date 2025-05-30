@@ -36,8 +36,9 @@
         Si tiene algún inconveniente al confirmar, por favor
         <a href="https://wa.me/593991391910" target="_blank" class="whatsapp-link">
           contáctanos por WhatsApp
-        </a>.
+        </a>
       </p>
+      <a href="/" class="rsvp-note">Regresar</a>
     </div>
   </section>
 </template>
