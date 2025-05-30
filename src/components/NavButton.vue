@@ -12,7 +12,7 @@
             <li><a href="#app" @click="isNavOpen = false">Invitación</a></li>
             <li><a href="#timeline-section" @click="isNavOpen = false">Nuestra Historia</a></li>
             <li><a href="#event-location" @click="isNavOpen = false">Detalles</a></li>
-            <li><a href="/rsvp" @click="isNavOpen = false">RSVP</a></li>
+            <li><a href="#/rsvp"  @click="isNavOpen = false">RSVP</a></li>
           </ul>
         </div>
       </transition>

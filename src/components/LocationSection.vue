@@ -22,7 +22,7 @@
       Lo más importante es compartir este momento contigo.<br />
       <strong>Sugerimos vestimenta formal</strong>
     </p>
-    <button class="rsvp-button" @click="goToReservation">Confirmar asistencia</button>
+    <a class="rsvp-button" href="#/rsvp" >Confirmar asistencia</a>
 
   </section>
 </template>
