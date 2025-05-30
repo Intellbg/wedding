@@ -1,33 +1,56 @@
 <template>
-  <div class="snap-container">
-    <section class="snap-section">
+  <main class="snap-container">
+    <!-- Sections that snap -->
+    <section class="snap-section-mobile">
       <Header />
+    </section>
+    <section class="snap-section-mobile">
+      <Timeline />
     </section>
     <section class="snap-section">
       <LocationSection />
     </section>
-    <section class="snap-section">
-      <Timeline />
-    </section>
-  </div>
+  </main>
 </template>
 
-
 <script setup>
+// No logic needed here
 </script>
 
 <style>
-.snap-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-.snap-section {
-  scroll-snap-align: start;
+.snap-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-section-mobile {
   height: 100vh;
   width: 100%;
 }
 
+.snap-section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .snap-container {
+    scroll-snap-type: y mandatory;
+  }
+
+  .snap-section-mobile {
+    scroll-snap-align: start;
+  }
+}
 </style>

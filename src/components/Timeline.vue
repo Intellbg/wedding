@@ -63,10 +63,10 @@ function selectYear(index) {
 }
 
 function scrollToNext() {
-  const next = document.querySelector('#event-location')?.nextElementSibling
-  if (next) {
-    next.scrollIntoView({ behavior: 'smooth' })
-  }
+    const section = document.getElementById('event-location');
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 function setupAutoAdvance() {
