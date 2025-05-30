@@ -17,13 +17,17 @@
           <span class="year">{{ event.year }}</span>
         </div>
       </div>
-      <div class="timeline-content-box">
+      <div
+        class="timeline-content-box"
+        @touchstart="startTouch"
+        @touchend="endTouch"
+      >
         <transition name="fade-slide" mode="out-in">
           <div v-if="selectedEvent" :key="selectedEvent.year">
             <p class="description">{{ selectedEvent.description }}</p>
             <div class="gallery">
               <div class="photo" v-for="(photo, i) in selectedEvent.photos" :key="i">
-                <img :src="photo" :alt="'Photo from ' + selectedEvent.year" loading="lazy" />
+                <img :src="photo" :alt="'Foto de ' + selectedEvent.year" loading="lazy" />
               </div>
             </div>
           </div>
@@ -31,22 +35,27 @@
       </div>
     </div>
   </section>
+
+  <!-- Dummy next section -->
+  <section id="next-section" style="height: 100vh; background: #f0f0f0;">
+    <h2 style="padding-top: 2rem; text-align: center;">¡Bienvenidos a la siguiente sección 🎉!</h2>
+  </section>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 
 const events = [
-  { year: '2015', description: 'Todo empezó', photos: ['/images/timeline/2015.jpg'] },
-  { year: '2016', description: 'Nuestro primer paso', photos: ['/images/timeline/2016.jpg'] },
-  { year: '2017', description: 'Confianza', photos: ['/images/timeline/2017.jpg'] },
-  { year: '2018', description: '', photos: ['/images/timeline/2018.jpg'] },
-  { year: '2019', description: '', photos: ['/images/timeline/2019.jpg'] },
-  { year: '2020', description: '', photos: ['/images/timeline/2020.jpg'] },
-  { year: '2021', description: '', photos: ['/images/timeline/2021.jpg'] },
-  { year: '2022', description: '', photos: ['/images/timeline/2022.jpg'] },
-  { year: '2023', description: '', photos: ['/images/timeline/2023.jpg'] },
-  { year: '2024', description: 'Ya casi', photos: ['/images/timeline/2024.jpg'] },
+  { year: '2015', description: 'Y así todo empezó', photos: ['/images/timeline/2015.jpg'] },
+  { year: '2016', description: 'En nuestros primeros logros', photos: ['/images/timeline/2016.jpg'] },
+  { year: '2017', description: 'La distancia no fue impedimento', photos: ['/images/timeline/2017.jpg'] },
+  { year: '2018', description: 'Una nueva cotidianidad', photos: ['/images/timeline/2018.jpg'] },
+  { year: '2019', description: 'Las tormentas pasan', photos: ['/images/timeline/2019.jpg'] },
+  { year: '2020', description: 'Se acabó el encierro', photos: ['/images/timeline/2020.jpg'] },
+  { year: '2021', description: 'Just chilling', photos: ['/images/timeline/2021.jpg'] },
+  { year: '2022', description: 'Aventuras', photos: ['/images/timeline/2022.jpg'] },
+  { year: '2023', description: 'Más Aventuras', photos: ['/images/timeline/2023.jpg'] },
+  { year: '2024', description: 'Dijo que sí', photos: ['/images/timeline/2024.jpg'] },
   { year: '2025', description: '¡Planeando nuestra boda!', photos: ['/images/timeline/2024.jpg'] },
 ]
 
@@ -57,11 +66,46 @@ function selectYear(index) {
   selectedIndex.value = index
 }
 
-onMounted(() => {
-  setInterval(() => {
-    selectedIndex.value = (selectedIndex.value + 1) % events.length
-  }, 5000)
-})
+// Swipe logic
+const touchStartX = ref(0)
+const touchEndX = ref(0)
+
+function startTouch(e) {
+  touchStartX.value = e.changedTouches[0].screenX
+}
+
+function endTouch(e) {
+  touchEndX.value = e.changedTouches[0].screenX
+  handleSwipe()
+}
+
+function handleSwipe() {
+  const distance = touchEndX.value - touchStartX.value
+  const threshold = 50
+
+  if (Math.abs(distance) > threshold) {
+    if (distance < 0) {
+      // Swipe left → next
+      if (selectedIndex.value < events.length - 1) {
+        selectedIndex.value++
+      } else {
+        scrollToNextSection()
+      }
+    } else {
+      // Swipe right ← previous
+      if (selectedIndex.value > 0) {
+        selectedIndex.value--
+      }
+    }
+  }
+}
+
+function scrollToNextSection() {
+  const nextSection = document.querySelector('#next-section')
+  if (nextSection) {
+    nextSection.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <style scoped>
