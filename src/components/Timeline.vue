@@ -63,7 +63,7 @@ function selectYear(index) {
 }
 
 function scrollToNext() {
-  const next = document.querySelector('#timeline-section')?.nextElementSibling
+  const next = document.querySelector('#event-location')?.nextElementSibling
   if (next) {
     next.scrollIntoView({ behavior: 'smooth' })
   }

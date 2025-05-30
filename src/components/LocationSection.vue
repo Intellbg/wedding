@@ -23,12 +23,7 @@
       <strong>El código de vestimenta es formal.</strong>
     </p>
     <button class="rsvp-button" @click="goToReservation">Confirmar asistencia</button>
-    <div class="scroll-arrow" @click="scrollToNext">
-      <svg width="32" height="32" viewBox="0 0 24 24" class="arrow-icon">
-        <path d="M12 5v14M12 19l-7-7M12 19l7-7" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" fill="none" />
-      </svg>
-    </div>
+
   </section>
 </template>
 

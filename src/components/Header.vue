@@ -38,7 +38,7 @@
 
 <script setup>
 function scrollToNext() {
-    const section = document.getElementById('event-location');
+    const section = document.getElementById('timeline-section');
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
     }
