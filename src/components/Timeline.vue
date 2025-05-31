@@ -106,16 +106,15 @@ onBeforeUnmount(() => {
 .timeline-section {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   background: #fffdf7;
   text-align: center;
-  overflow: hidden;
   scroll-snap-align: start;
-  padding: 0;
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 3rem);
   color: #4f3d1a;
   font-family: 'Alex Brush', cursive;
   margin: 1rem auto 0.5rem;
@@ -125,10 +124,10 @@ onBeforeUnmount(() => {
 .timeline-row {
   display: flex;
   flex: 1;
-  width: 100%;
-  overflow: hidden;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
 }
 
 .timeline-vertical {
@@ -140,7 +139,6 @@ onBeforeUnmount(() => {
   border-right: 2px solid #b68d21;
   flex: 0 0 80px;
   background-color: #fffdf7;
-  height: 100%;
 }
 
 .timeline-node {
@@ -175,18 +173,18 @@ onBeforeUnmount(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;
-  width: 100%;
+  min-height: 60vh;
   box-sizing: border-box;
 }
 
 .description {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #4f3d1a;
-  max-width: 600px;
+  max-width: 800px;
   font-weight: 500;
   line-height: 1.6;
   margin: 1rem auto;
+  padding: 0 1rem;
 }
 
 .photo {
@@ -194,13 +192,13 @@ onBeforeUnmount(() => {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: auto;
   padding: 1rem 0;
 }
 
 .photo img {
-  max-height: 60vh;
   max-width: 100%;
+  max-height: min(70vh, 600px);
+  width: auto;
   height: auto;
   object-fit: contain;
   border-radius: 0.75rem;
@@ -257,16 +255,17 @@ onBeforeUnmount(() => {
     border-bottom: 2px solid #b68d21;
     width: 100%;
     padding: 0.5rem;
-    height: auto;
   }
 
   .timeline-content-box {
     padding: 1rem;
-    z-index: 0;
+  }
+
+  .description {
+    font-size: 1rem;
   }
 
   .photo img {
-    max-width: 100%;
     max-height: 50vh;
   }
 }
