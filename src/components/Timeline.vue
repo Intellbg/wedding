@@ -55,10 +55,10 @@ const events = [
   { year: '2018', description: 'Una nueva cotidianidad', photos: ['/images/timeline/2018.jpg'] },
   { year: '2019', description: 'Las tormentas pasan', photos: ['/images/timeline/2019.jpg'] },
   { year: '2020', description: 'Se acabó el encierro', photos: ['/images/timeline/2020.jpg'] },
-  { year: '2021', description: 'Just chilling', photos: ['/images/timeline/2021.jpg'] },
+  { year: '2021', description: 'Cada más juntos', photos: ['/images/timeline/2021.jpg'] },
   { year: '2022', description: 'Aventuras', photos: ['/images/timeline/2022.jpg'] },
   { year: '2023', description: 'Más Aventuras', photos: ['/images/timeline/2023.jpg'] },
-  { year: '2024', description: 'Dijo que sí', photos: ['/images/timeline/2024.jpg'] },
+  { year: '2024', description: 'Y así comenzó un nuevo viaje', photos: ['/images/timeline/2024.jpg'] },
   { year: '2025', description: '¡Planeando nuestra boda!', photos: ['/images/timeline/2025.jpg'] },
 ]
 
