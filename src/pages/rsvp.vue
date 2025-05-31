@@ -57,7 +57,7 @@
 <script setup>
 import { reactive, ref, watch } from 'vue'
 
-const API_BASE_URL = 'http://localhost:8000/api/'
+const API_BASE_URL = 'https://api_wedding.usagicli.com/api/'
 
 const form = reactive({
   name: '',
