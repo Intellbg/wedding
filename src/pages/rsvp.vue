@@ -4,7 +4,7 @@
     <div class="rsvp-card">
       <form @submit.prevent="submitRSVP" class="rsvp-form">
         <label>
-          Nombre Completo
+          Nombre de invitación
           <div class="input-wrapper autocomplete-wrapper">
             <input type="text" v-model="form.name" required class="styled-input"
               @focus="showSuggestions = suggestions.length > 0" @blur="handleBlur" />
